@@ -1,0 +1,92 @@
+
+
+                                       21.03.2023
+
+                      https://github.com/ismettechno/Cucumber_Kursu5.git
+
+                            Behaviour Driven Development -> BDD
+
+ ****Framework’unuzdan bahsedermisiniz?
+     Benim framework’um BDD.Page object model  framework. Web sitemdeki farklı sayfalara göre framework içinde page sınıfları oluşturuyorum.
+     Ben Cucumber’dan gelen feature dosyalarını kullanıyorum(Cucumber feature dosyaları ile çerçeveyi BDD olarak yapabiliyoruz).
+     Gherking dili ile test senaryolarım ekipteki herkes için daha anlaşılır oluyor. ( Hemde takimin yeni üyeleri icin).
+     Feature dosyasındaki farklı adımlara göre Step definition  paketinde adımlar oluşturuyorum. ,
+     BDD'den  gelen Page object model  icindeki yeniden kullanılabilir elementler ve metodlar,yazdigim
+     kodun daha sürdürülebilir (değiştirilebilir) olmasini sagliyor.
+     Projeye bağımlılığı korumak için maven kullanıyorum.
+     Raporlama için, genişletme(extend) raporunu kullanıyorum ve  Raporumda kaç tane feature geçtiğini,
+     kaç senaryonun geçtiğini veya başarısız olduğunu belirtiliyor.
+     EkstraAfterClass’imda bir ekran görüntüsü alıyorum ve bunu raporlama için de kullanabiliyorum. B
+     u kisaca benim framework’um.
+     Birden çok tarayıcıyı nasıl çalıştıracaklarını sorarlarsa?
+      Bir testng.xml dosyam var ve RunnerClasses'ı birden çok tarayıcıyla çalıştırıyor.
+     Bu metodolojiye benzer şekilde birden çok framework oluşturun.
+
+
+
+*** SENARYOLARIN ÜZERİNE GELİP CTRL YE BASTIĞIMIZDA HANGİ METODDA KULLANILDIĞINI GÖREBİLİRİZ
+
+
+          *** GİVEN WHEN AND THEN SENARYOLARININ STEPLERİNİ OLUŞTURMA ŞEKLİ :
+ SENARYOLAR SARIYKEN ÜZERİNE GELİRİZ, MORE ACTİON A TIKLARIZ VE CREATE ALL STEP DEFİNİTİON TIKLARIZ
+ ÇIKAN PENCEREDE FİLE NAME YAZARIZ YANİ STEP ADIMIZI SONRADA  ,FİLE TYPE JAVA OLACAK ,LOCATION SONUNA KLASÖRÜN ADINI
+ YAZIYORUZ "STEPDEFİNİTİONS" VE SONUNA \ TERS SLAŞ KOYUP OKEYLERİZ.
+ VE BÖYLECE BİZE STEPDEFİNİTİONS ALTINDA CLASIMIZI AÇAR VE SENARYOLAR İÇİNDE HAZIR HALDE GELMİŞ OLUR
+
+
+
+------------------------------------------------------------------------------------------------
+
+***FEATURE FİLE DA GHERKİN DİLİYLE SENARYOLARIMIZI YAZIYORUZ,  ***  ÇALIŞTIRMA İŞLEMİDE FEATURE DAN YAPILIR
+***PAGES KLASÖRÜNDE  DRİVER I İNİTİALİZE EDİYORUZ VE  FİNDBY VE FİNDALL KULLANARAK LOCATERLARIMIZI YAZIYORUZ  VE PARENT CLASINIDA BURADA OLUŞTURURUZ
+
+***PARENT CLASTA HER   RUN YAPTIĞIMIZDA ÇALIŞMASI GEREKEN FONKSİYONLAR YER ALIR,BUNLARI ÖNCEDEN TANIMLARIZ,FONKSİYONLARIN ÇALIŞMASI İÇİN
+"PageFactory.initElements(GWD.getDriver(),this);}" TANIMLIYORUZ EN BAŞA
+
+***STEPDEFİNİTİONS KLASÖRÜNDE  KOD AKIŞINI SAĞLARIZ
+
+***UTİLİTİES DE BASEDRİVERLARIMIZI OLUŞTURUYORUZ
+
+***RUNNER CLASSLAR DA SMOKE ,REGRESSİON VE GRUP TESTLERİMİZİ ÇALIŞTIRIYORUZ
+
+***HER SENARYODAN SONRA ÇALIŞACAK EN SON KISMI AFTER SENARYOYU HOOKS CLASINDA AYRICA TANIMLIYORUZ ,AFTER CLASS
+
+***  VE POM SAYESİNDE BÜTÜN CLASLARIMIZ BİRBİRİYLE BAĞLANTI KURUYOR YANİ BİRBİRİYLE KONUŞTURUYORUZ
+
+
+------------------------------------------------------------------------------------------------------
+
+
+
+------------------------------------------------------------------------------------------------------
+
+
+
+
+-------------------------------------------------------------------------------------------------------
+
+***CAMPÜS SİTESİ ÖĞRETMENLERİN ,ÖĞRENCİLERİN VE VELİLERİNDE KULLANDIĞI COMPLEX BİR SİTE HEM DERSLER HEM ÖDEVLER ,HEMDE
+***ÖDEMELERİN TAKİBİNİN YAPILDIĞI ,İÇİNDE DERS NOTLARININ DA OLDUĞU BİR SİTE
+
+---------------------------------------------------------------------------------------------------------------
+    POM XML E EKLEDİK  RANDOM ALPHANUMERİC FONKSİYONLARINI BU KÜTÜPHANEDEN KULLANABİLMEK İÇİN EKLEMİŞ OLDUK
+
+     <dependency>
+                  <groupId>org.apache.commons</groupId>
+                  <artifactId>commons-lang3</artifactId>
+                  <version>3.12.0</version>
+              </dependency>
+
+------------------------------------------------------------------------------------------------------------------------
+
+                                         SOFT SKİLLS TEST CASE VE TEST SENARYOSU PRATİK
+
+                                      https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index
+
+
+
+
+
+
+
+

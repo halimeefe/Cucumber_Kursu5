@@ -1,0 +1,82 @@
+
+
+
+https://www.programsbuzz.com/article/how-add-screenshot-cucumber-extent-report-every-step
+
+ BU SİTEDEN CUCUMBER GÜNCELLEMELERİ VE EXTEND REPORT İŞLEMLERİNİ TAKİP EDEBİLİRİZ
+ YENİ VERSİYONLAR NASIL EKLENİR BURALARDAN ÖĞRENEBİLİRİZ
+TUTORİLA DAN OQ ASSURANCEYE TIKLAYIP CUCUMBERA GİRERİZ VE AŞAĞIDAN CUCUMBER INTEGTARİON WİTH TESTNG YE TIKLARIZ
+BUNUN İÇERİSİNDE GRASSHOPER OLANI SEÇTİK,EN KOLAY VE EN GÜZELİ
+BURADA HEM VİDEOLU HEM GÖRSELLİ ADIM ADIM NASIL YAPILACAĞI ANLATILIYOR
+
+ RAPORUMUZU OLUŞTURMAK İÇİN SIRAYLA AŞAĞIDAKİ ADIMLARI İZLERİZ
+
+1-POM DEPENDENCY EKLENTİSİ EKLENİR
+
+  <dependency>
+                  <groupId>tech.grasshopper</groupId>
+                  <artifactId>extentreports-cucumber7-adapter</artifactId>
+                  <version>1.9.2</version>
+              </dependency>
+
+2-RUNNER CLASSA PLUGİN EKLEDİK
+
+com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:
+
+3- TÜRKÇE BİLGİSAYRALARDA EXTEND REPORT ÇALIŞMADIĞI İÇİN BASE DRİVERIMIZA AŞAĞIDAKİ FONKSİYONU İLAVE ETTİK
+      public static WebDriver getDriver() {
+      Locale.setDefault(new Locale("EN"));
+      System.setProperty("user.language", "EN");
+
+
+ 4- DAHA SONRA EXTEND.PROPERTİES FİLE INI RESOURCES ALTINA AÇARIZ VE İÇİNE AŞAĞIDAKİ SATIRLARI EKLERİZ
+
+ extent.reporter.spark.start=true
+ extent.reporter.spark.out=test-output/SparkReport/Spark.html
+
+
+ 5-RAPORA SCREENSHOT EKLENMESİ İÇİN
+
+   https://www.programsbuzz.com/article/how-add-screenshot-cucumber-extent-report-every-step
+        https://qaautomation.expert/2022/08/10/how-to-add-screenshot-to-cucumber-extentreports/
+
+   a) Hooks a aşağıdaki eklendi
+
+       if (senaryo.isFailed()){
+                   TakesScreenshot ts=(TakesScreenshot) GWD.getDriver();
+                 final byte[] hafizadakiHali=ts.getScreenshotAs(OutputType.BYTES);
+                   senaryo.attach(hafizadakiHali, "image/png","screen shot");
+               }
+
+   b)extends.properties e aşağıdaki bölüm eklendi  -->EKRAN GÖRÜNTÜLERİNİN SAKLANMASI İÇİN PATH EKLEDİK
+         #screenshot folder and src settings
+
+         screenshot.dir=test-output/screenshots/
+         screenshot.rel.path=../screenshots/
+
+
+    6-   REPORTUN PDF ÇIKTISI İÇİN AŞAĞIDAKİ FONKSİYONU EXTEND.PROPERTİESE EKLEDİK
+
+            https://www.programsbuzz.com/article/extent-pdf-report-cucumber-testng
+            extends.properties e aşağıdaki bölüm eklendi
+
+                #PDF Report
+
+                extent.reporter.pdf.start=true
+                extent.reporter.pdf.out=PdfReport.pdf
+
+7- HER RAPORUN AYRI AYRI OLMASI İÇİN AŞAĞIDAKİ KODU EXTENT.PROPERTİESE EKLEDİK
+
+     #FolderName
+
+     basefolder.name=Test Reports/TestReport
+     basefolder.datetimepattern=d-MMM-YY HH.mm.ss
+
+ 8- TERMİNALİN DAHA TEMİZ GÖRÜNMESİ İÇİN RESOURCE NİN ALTINDA CUCUMBER.PROPERTİES FİLE AÇTIK VE
+
+ İÇİNE  ŞU FONKSİYONU YAZDIK
+
+
+
+
+

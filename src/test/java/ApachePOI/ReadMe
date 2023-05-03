@@ -1,0 +1,59 @@
+
+           03.04.2023  /04.04.2023
+
+
+<!-- Excel işlemleri için aşağıdaki 2 depency ye kullanılıyor, -->
+        <!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
+
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>4.1.0</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
+
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>4.1.0</version>
+        </dependency> (düzenlendi)
+
+
+  ------------------------------------------------------------------------------------------------------
+  EXCELİ JAVA NIN İÇİNDEN OKUMAK İÇİN EXELLE BİR BAĞLANTI KURMAMIZ GEREKİYOR
+  AÇMAK İSTEDİĞİMİZ DOSYANIN YOLUNU VERMEK GEREKİYOR BU BAĞLANTIYA FİLE INPUT STREAM DİYORUZ
+  YAZMA YÖNÜNDE BAĞLANTI OLUŞTURURSAK FİLE OUTPUT STREAM OLUYOR
+  OKUMA YÖNÜNDE OLURSA  BU BAĞLANTI FİLE İNPUT STREAM  OLUYOR
+
+  APACHEPOI KLASÖRÜ ALTINA RESOURCE KLASÖRÜ AÇTIK VE İNDİRDİĞİMİZ APACHEEXCEL DOSYASINI BURAYA KOPYALAYIP YAPIŞTIRDIK
+  BU DOSYANIN İLK ÖNCE YOLUNU DEĞİŞKENE ATTIK
+
+  String path = "src/test/java/ApachePOI/resource/ApacheExcel2.xlsx";
+
+  SONRADA COPYPATH VE CONTENET ROOT YAPTIK YUKARIDA PATHİN İÇİNE ATTIK
+  JAVA OKUMA YÖNÜNDE BİR BAĞLANTI KURSUN DİYE FİLE İNPUT STREAM İLE AŞAĞIDAKİ KODU YAZDIK
+
+   FileInputStream dosyaOkumaBaglantisi = new FileInputStream(path);
+   FİLE INPUT KIZARINCA METHOD SİGNATURE YAPARIZ VE MAİNE EKLETİRİZ (TRY CATCHE ALMAMIZI İSTİYOR)
+   BAŞKA YERDE KULLANMAYACAĞIMIZ İÇİN METHOD YAPMAYA GEREK KALMADI MAİNE EKLEDİK
+
+   EXCEL DOSYASINI AÇTIĞIMIZDA BİLGİLERE ULAŞMAK İÇİN SIRAYLA İZLEMEMİZ GEREKEN AŞAMALAR VAR
+    FileInputStream -> Workbook -> Sheet -> row -> cell ilşki sırasına göre okuyorum.
+
+    ÖNCE  WORKBOOK->ÇALIŞMA KİTABI
+          SHEET -> ÇALIŞMA SAYFASI
+          ROW ->SATIR
+          CELL->HÜCRE
+
+
+
+
+
+
+
+
+
+
+
+
